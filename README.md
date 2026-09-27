@@ -1,30 +1,73 @@
-# Figma Discord Integration
+# FigTime — Discord Rich Presence for Figma (Landing Page)
 
-*Automatically synced with your [v0.app](https://v0.app) deployments*
+A Discord-styled landing page for **FigTime**, a (concept) Discord Rich Presence integration for Figma — show what you're designing in your Discord status, right from Figma.
 
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/gileb64375-5584s-projects/v0-figma-discord-integration)
-[![Built with v0](https://img.shields.io/badge/Built%20with-v0.app-black?style=for-the-badge)](https://v0.app/chat/projects/BoidwTHBwUo)
+Built with Next.js and styled to mimic Discord's dark UI, with a three-column Discord-style layout (server rail, channel list, chat-style hero), feature sections, and a mobile-responsive nav.
 
-## Overview
+Originally generated with [v0.app](https://v0.app).
 
-This repository will stay in sync with your deployed chats on [v0.app](https://v0.app).
-Any changes you make to your deployed app will be automatically pushed to this repository from [v0.app](https://v0.app).
+## Features
 
-## Deployment
+- **Discord-style layout** — server sidebar, channel list, chat-style hero, user status bar
+- **Product pitch sections** — features, screenshots placeholders, download CTA
+- **Mobile responsive** — collapsible menus and sidebar for small screens
+- **Dark theme** — Discord's signature `#36393f` palette via Tailwind + next-themes
+- **Fully static** — no backend, no API calls
 
-Your project is live at:
+## Tech Stack
 
-**[https://vercel.com/gileb64375-5584s-projects/v0-figma-discord-integration](https://vercel.com/gileb64375-5584s-projects/v0-figma-discord-integration)**
+- **Framework:** Next.js 15 (App Router, static export)
+- **Language:** TypeScript + React 19
+- **UI:** shadcn/ui primitives, Radix UI, Tailwind CSS
+- **Icons:** Lucide React
+- **Deploy:** GitHub Pages (static `output: 'export'` build)
 
-## Build your app
+## Quick Start
 
-Continue building your app on:
+Prerequisites: Node.js 18+ and npm.
 
-**[https://v0.app/chat/projects/BoidwTHBwUo](https://v0.app/chat/projects/BoidwTHBwUo)**
+```bash
+# Install dependencies
+npm install
 
-## How It Works
+# Run the dev server
+npm run dev
+# → http://localhost:3000
 
-1. Create and modify your project using [v0.app](https://v0.app)
-2. Deploy your chats from the v0 interface
-3. Changes are automatically pushed to this repository
-4. Vercel deploys the latest version from this repository
+# Production build (static export to ./out)
+npm run build
+```
+
+## Project Structure
+
+```
+figma-discord-integration/
+├── app/
+│   ├── page.tsx          # FigTime landing page (single-page site)
+│   ├── layout.tsx        # Root layout (fonts, theme provider)
+│   ├── loading.tsx
+│   └── globals.css
+├── components/
+│   ├── theme-provider.tsx
+│   └── ui/               # shadcn/ui primitives (button)
+├── lib/utils.ts
+├── next.config.mjs       # Static export config (output: 'export')
+├── tailwind.config.ts
+├── styles/globals.css
+└── public/               # Logos and placeholder assets
+```
+
+## Environment Variables
+
+None. The page is fully static and needs no API keys or secrets.
+
+## Deployment Notes
+
+- Configured for **static export** (`output: 'export'`) and deployed to **GitHub Pages** via the `gh-pages` branch.
+- GitHub Pages serves from a subpath (`https://girishlade111.github.io/figma-discord-integration/`), so `basePath: '/figma-discord-integration'` is set in `next.config.mjs`.
+  - Deploying to Vercel (root domain)? **Remove the `basePath` line** first.
+- Note: this repo is a **landing page for the FigTime concept** — the actual Discord Rich Presence client/plugin is not included here.
+
+---
+
+Built by Girish Lade — https://ladestack.in
